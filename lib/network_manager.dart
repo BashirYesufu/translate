@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:requests_inspector/requests_inspector.dart';
+// import 'package:requests_inspector/requests_inspector.dart';
 import 'package:rxdart/rxdart.dart';
 
 class NetworkManager{
@@ -21,7 +21,7 @@ class NetworkManager{
     SharedApiResponse apiResponse;
     var baseUrl =  'BaseUrl.BASE_URL';
     String url = '$baseUrl$requestUrl';
-    client.interceptors.add(RequestsInspectorInterceptor());
+    // client.interceptors.add(RequestsInspectorInterceptor());
     if(useAuth){
       String token = 'await SharedPref.getToken()';
       client.options.headers["Authorization"]  = "Bearer $token";

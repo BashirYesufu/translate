@@ -45,21 +45,48 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final gt = SimplyTranslator(EngineType.google);
 
   @override
   Widget build(BuildContext context) {
+    final gt = SimplyTranslator(EngineType.google);
+
     return Scaffold(
       body: Center(
-        child: FutureBuilder(
-          future: gt.trSimply('Use many other tools for easy family management (e.g. vacation planner)', 'en', 'en'),
-          builder: (context, snapshot) {
-            return Text(
-              snapshot.data ?? ''
-            );
-          }
-        ),
+        child: TranslatedText(text: 'Tell me where you are going',),
       ),
+    );
+  }
+}
+
+class TranslatedText extends StatefulWidget {
+  const TranslatedText({
+    super.key,
+    required this.text,
+    this.source = 'en',
+    this.target,
+  });
+
+  final String text;
+  final String source;
+  final String? target;
+
+  @override
+  State<TranslatedText> createState() => _TranslatedTextState();
+}
+
+class _TranslatedTextState extends State<TranslatedText> {
+  @override
+  Widget build(BuildContext context) {
+    final gt = SimplyTranslator(EngineType.google);
+
+    return FutureBuilder(
+      future: gt.trSimply(widget.text, widget.source, widget.target ?? 'es'),
+      builder: (context, snapshot) {
+        print(snapshot.data);
+        return Text(
+          snapshot.data ?? widget.text
+        );
+      }
     );
   }
 }
