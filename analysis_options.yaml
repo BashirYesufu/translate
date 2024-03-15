@@ -21,6 +21,17 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
+    prefer_const_constructors: false
+    prefer_const_constructors_in_immutables: false
+    prefer_const_declarations: false
+    prefer_constructors_over_static_methods: false
+    prefer_const_literals_to_create_immutables: false
+    camel_case_types: true
+    non_constant_identifier_names: false
+    constant_identifier_names: false
+    avoid_dynamic_calls: true
+    avoid_print: true
+    cancel_subscriptions: true
     # avoid_print: false  # Uncomment to disable the `avoid_print` rule
     # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
 
