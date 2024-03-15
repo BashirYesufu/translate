@@ -1,7 +1,7 @@
 
 enum Environment { SANDBOX, LIVE }
 
-class BaseUrl {
+class AppConfig {
   static Map<String, dynamic>?  _config;
   static Environment? _env;
 
